@@ -2,5 +2,5 @@ rootProject.name = 'banking-platform'
 
 include 'common'
 include 'cards-ms'
-include 'loan-ms'
+include 'loans-ms'
 include 'users-ms'

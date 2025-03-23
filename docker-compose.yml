@@ -15,7 +15,7 @@ services:
 
   users-ms:
     build:
-      context: ./users-ms  # bu sənin Dockerfile olan folder-dir
+      context: ./users-ms
     container_name: users-ms
     ports:
       - "8081:8081"
@@ -23,6 +23,19 @@ services:
       - postgres
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/users-ms
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+
+  loans-ms:
+    build:
+      context: ./loans-ms
+    container_name: loans-ms
+    ports:
+      - "8082:8082"
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/loans-ms
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: postgres
 

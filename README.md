@@ -46,3 +46,55 @@ A modular and containerized banking microservice platform built with **Spring Bo
 
 ## 📁 Project Structure
 
+```
+banking-platform/
+├── users-ms/
+├── loans-ms/
+├── cards-ms/
+├── common/
+├── docker/
+│   └── db/
+│       └── init.sql
+└── docker-compose.yml
+```
+
+---
+
+## 🛠️ How to Run
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/banking-platform.git
+cd banking-platform
+```
+
+### 2. Run with Docker Compose
+
+```bash
+docker-compose up --build
+```
+
+This will:
+- Start PostgreSQL container
+- Automatically create `users-ms`, `loans-ms`, and `cards-ms` databases using `init.sql`
+- Build and start all services
+- Apply Liquibase migrations to each database
+
+---
+
+## 🧪 Verify Database Setup
+
+### Access PostgreSQL CLI
+
+```bash
+docker exec -it postgres psql -U postgres
+```
+
+### Check databases and tables
+
+```sql
+\l           -- list all databases
+\c users-ms  -- connect to users-ms
+\dt          -- list tables in schema
+```
